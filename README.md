@@ -18,7 +18,7 @@ We encourage you to read through this document to get the most our of what this 
 
 ## Getting Started
 
-These instructions will guide you on how to develop and test YenePay's payment method integration with your Python application. YenePay have setup a sandbox environment for you to test and play around the integration process. To learn more about this, please visit yenepay community site: https://community.yenepay.com/
+These instructions will guide you on how to develop and test YenePay's payment method integration with your Python application. YenePay has setup a sandbox environment for you to test and play around the integration process. To learn more about this, please visit yenepay community site: https://community.yenepay.com/
 
 ## Pre-requisite
 
@@ -45,7 +45,7 @@ python setup.py .
 ## Basic Usage
 
 ### Creating client
-* Inorder to use any feature from this package, first you have to create a client instance.
+* To use any feature from this package, first you have to create a client instance.
 ```python
 from yenepay import Client
 
@@ -92,7 +92,7 @@ print(checkout_url)
 ```
 
 ### Creating cart checkout
-* Cart checkout are used for multiple items checkout.
+* Cart checkout is used for multiple items checkout.
 
 ```python
 from yenepay import Client, Item, Cart
@@ -109,7 +109,7 @@ cart = Cart(
     Item("PC_4", 150_000.00, 2),
 )
 
-print(cart.total_price) # returns total of cart items unit price
+print(cart.total_price) # returns the total of cart items unit price
 
 cart_checkout = client.get_cart_checkout(items=cart)
 
@@ -117,7 +117,7 @@ checkout_url = cart_checkout.get_url()  # Return link for payment, if success
 
 print(checkout_url)
 ```
-> Or you can use CartCheckout class
+> Or you can use the CartCheckout class
 
 ```python
 from yenepay import Client, Item, Cart, CartCheckout
@@ -140,7 +140,7 @@ checkout_url = cart_checkout.get_url()  # Return link for payment, if success
 
 print(checkout_url)
 ```
-> You can send list of items into a class if you want
+> You can send a list of items to a class if you want
 
 ```python
 items = [
@@ -153,16 +153,16 @@ items = [
 cart_checkout = client.get_cart_checkout(items=items)
 ```
 ### PDT
-* You can check your payment order status using PDT class
+* You can check your payment order status using the PDT class
 
 ```python
 from yenepay import Client
 
 client = Client(merchant_id="0000", token="abcd")
 
-merchant_order_id = "0000"  # Give when you create checkout url
+merchant_order_id = "0000"  # Give when you create checkout URL
 
-transaction_id = "abcd"  # Send from yenepay when payment is successfull
+transaction_id = "abcd"  # Send from yenepay when payment is successful
 
 response = client.check_pdt_status(merchant_order_id, transaction_id)
 
@@ -170,7 +170,7 @@ if response.result == "SUCCESS" and response.status == "Paid":
     print("Payment Completed By: {}".format(response.buyer_id))
 ```
 
-> If you have an instance of checkout, that create a link you can use
+> If you have an instance of checkout, that creates a link you can use
 
 ```python
 from yenepay import Client, Item
@@ -190,36 +190,17 @@ express_checkout = client.get_express_checkout(
 
 pdt_response = express_checkout.check_pdt_status(transaction_id)
 
-# The rest of you process can run here.
+# The rest of your process can run here.
 ...
 ```
 
-* Read more from our documation [readthedocs](https://yenepay.readthedocs.io/).
+* Read more from our documentation [readthedocs](https://yenepay.readthedocs.io/).
 
 
 ## Contact
 
-Don't hesitate to contact us, either in person or through our call centers.
+Don't hesitate to contact us.
 
 <img align=left width="25" height="25" src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/000000/external-envelop-office-and-office-supplies-flaticons-lineal-color-flat-icons.png"/>
 
-info@backostech.com
-
-<img align=left width="25" height="25" src="https://img.icons8.com/color/48/000000/linkedin.png"/>
-
-<a href="https://www.linkedin.com/company/backos-tech/about/">Backos Technologies</a>
-
-<img align=left width="25" height="25" src="https://img.icons8.com/clouds/100/000000/phone.png"/>
-
-+251910900879
-
-<hr />
-<p align="center">
-  <img width="150" height="150" src="https://github.com/backostech/.github/raw/main/profile/logo.png">
-  <h1 align="center"><a href="https://backostech.com">𝔹𝕒𝕔𝕜𝕠𝕤 𝕋𝕖𝕔𝕙𝕟𝕠𝕝𝕠𝕘𝕚𝕖𝕤</a></h1>
-
-  ```
-                                                    ᴀ ᴛᴇᴄʜ ʏᴏᴜ ᴄᴀɴ ᴛʀᴜsᴛ
-  ```
-</p>
-<p align="center">© Copyright <a href="https://backostech.com">Backos Technologies</a>. All Rights Reserved</p>
+[wendiradame@gmail.com](mailto:wendiradame@gmail.com)
